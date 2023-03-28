@@ -1,4 +1,4 @@
 # Anarvin
-A Shopify Theme
+A Shopify custom theme
 ## Developer
 - Lemuel Lloren

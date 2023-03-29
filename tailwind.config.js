@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        anarvin_primary_color: "#6e2f1b",
+        anarvin: "#6e2f1b",
       },
     },
   },

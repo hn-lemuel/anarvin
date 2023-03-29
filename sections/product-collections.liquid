@@ -1,0 +1,36 @@
+<div class="container mx-auto py-20">
+  <div class="flex justify-center items-center gap-14">
+    {% for product in collections limit: 2 %}
+      {% if product.image == blank %}
+        {% assign color = 'black' %}
+        {% assign border = 'border' %}
+      {% else %}
+        {% assign color = 'white' %}
+      {% endif %}
+      <div
+        class="md:flex justify-end flex-col bg-no-repeat bg-cover bg-center w-full h-[600px] p-10 {{ border }}"
+        style="background-image: url({{ product.image.src | collection_img_url: '1920x2280' }})"
+      >
+        {% if product.image == blank %}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+
+        <h3 class="text-{{ color }} text-3xl font-medium mb-3">
+          {{ product.title | escape }}
+        </h3>
+        <a class="text-{{ color }}" href="{{ product.url }}">Shop Collection</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

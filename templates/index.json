@@ -1,8 +1,11 @@
 {
     "sections": {
-        "template": {
+        "hero-banner": {
             "type": "hero-banner"
+        },
+        "product-collections": {
+            "type": "product-collections"
         }
     },
-    "order": ["template"]
+    "order": ["hero-banner", "product-collections"]
 }

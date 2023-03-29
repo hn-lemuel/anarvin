@@ -1,0 +1,48 @@
+<style>
+  .slick-prev:before,
+  .slick-next:before {
+    color: #6e2f1b !important;
+    opacity: unset !important;
+  }
+</style>
+
+<div class="bg-orange-50 py-20">
+  <div class="container mx-auto text-center">
+    <h3 class="text-3xl font-medium mb-20">{{ section.settings.section_title | escape }}</h3>
+    <div class="category-slider">
+      {% for collection in collections %}
+        <div class="flex justify-center items-center">
+          <div class="mb-5">
+            <img
+              class="rounded-full w-36 h-36 mx-auto"
+              src="{{ collection.image.src | img_url: 'large' }}"
+              alt="{{ collection.image.alt }}">
+          </div>
+          <div>
+            <a href="{{ collection.url }}" class="text-lg">{{ collection.title }}</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Product Categories",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Shop by categories"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product Categories"
+      }
+    ]
+  }
+{% endschema %}

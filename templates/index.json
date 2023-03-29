@@ -5,7 +5,10 @@
         },
         "product-collections": {
             "type": "product-collections"
+        },
+        "product-categories": {
+            "type": "product-categories"
         }
     },
-    "order": ["hero-banner", "product-collections"]
+    "order": ["hero-banner", "product-collections", "product-categories"]
 }

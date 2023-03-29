@@ -7,7 +7,11 @@ module.exports = {
     "./templates/*.liquid",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        anarvin_primary_color: "#6e2f1b",
+      },
+    },
   },
   plugins: [],
 };

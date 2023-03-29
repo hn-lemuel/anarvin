@@ -3,12 +3,12 @@
         "hero-banner": {
             "type": "hero-banner"
         },
-        "product-collections": {
-            "type": "product-collections"
+        "featured-collections": {
+            "type": "featured-collections"
         },
         "product-categories": {
             "type": "product-categories"
         }
     },
-    "order": ["hero-banner", "product-collections", "product-categories"]
+    "order": ["hero-banner", "featured-collections", "product-categories"]
 }

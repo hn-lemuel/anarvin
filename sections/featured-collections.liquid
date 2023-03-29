@@ -1,6 +1,6 @@
 <div class="container mx-auto py-20">
   <div class="flex justify-center items-center gap-14">
-    {% for product in collections limit: 2 %}
+    {% for product in collections limit: 3 %}
       {% if product.image == blank %}
         {% assign color = 'black' %}
         {% assign border = 'border' %}

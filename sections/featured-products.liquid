@@ -3,7 +3,7 @@
 
 <div class="container mx-auto p-10 lg:p-20">
   <div>
-    <h3 class="w-full text-4xl font-medium mb-0 text-center pb-20">{{ content.section_title }}</h3>
+    <h3 class="w-full text-4xl font-medium mb-0 text-center pb-10 md:pb-20">{{ content.section_title }}</h3>
     {% comment %} Mobile slider  {% endcomment %}
     <div class="block md:hidden">
       <div class="global-slider">
@@ -52,8 +52,8 @@
       </div>
     </div>
     {% comment %} Desktop  {% endcomment %}
-    <div class="text-center block mt-20">
-      <a href="{{ routes.all_products_collection_url }}" class="px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+    <div class="text-center block mt-10 md:mt-20">
+      <a href="{{ routes.all_products_collection_url }}" class="text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
         {{ content.button_text }}
       </a>
     </div>

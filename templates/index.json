@@ -8,7 +8,10 @@
         },
         "product-categories": {
             "type": "product-categories"
+        },
+        "featured-products": {
+            "type": "featured-products"
         }
     },
-    "order": ["hero-banner", "featured-collections", "product-categories"]
+    "order": ["hero-banner", "featured-collections", "product-categories", "featured-products"]
 }

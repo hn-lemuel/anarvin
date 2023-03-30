@@ -1,0 +1,37 @@
+<div class="container mx-auto p-10 lg:p-20">
+  {% assign product_types = collections.all.products | map: 'type' | uniq %}
+  <div class="lg:flex justify-center items-center gap-10">
+    {% for type in product_types %}
+      {% assign products_of_type = collections.all.products | where: 'type', type %}
+      {% assign product_image = products_of_type.first.featured_image %}
+      <div class="mb-10 lg:mb-0">
+        <div class="mb-8">
+          <a href="/collections/{{ type | handleize }}">
+            <img
+              src="{{ product_image.src | img_url: '1000x1000' }}"
+              alt="{{ product_image.alt }}"
+              class="w-full object-cover transition duration-1000 ease-in-out transform hover:scale-105"
+              height="auto"
+              width="auto"
+              loading="lazy" />
+          </a>
+        </div>
+        <div>
+          <h2 class="text-black text-4xl mb-5">{{ type }}</h2>
+          <a class="text-anarvin hover:text-black underline underline-offset-8" href="/collections/{{ type | handleize }}">Shop collection</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product Types",
+    "presets": [
+      {
+        "name": "Product Types"
+      }
+    ]
+  }
+{% endschema %}

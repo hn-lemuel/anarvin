@@ -1,30 +1,61 @@
 {% assign latest_products = collections.all.products | sort: 'created_at' | reverse | uniq | slice: 0, 3 %}
 {% assign content = section.settings %}
 
-<div class="container mx-auto py-20">
+<div class="container mx-auto p-10 lg:p-20">
   <div>
-    <div class="flex justify-between items-center mb-20">
-      <h3 class="text-4xl font-medium mb-0">{{ content.section_title }}</h3>
-      <a href="{{ routes.all_products_collection_url }}" class="block px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+    <h3 class="w-full text-4xl font-medium mb-0 text-center pb-20">{{ content.section_title }}</h3>
+    {% comment %} Mobile slider  {% endcomment %}
+    <div class="block md:hidden">
+      <div class="global-slider">
+        {% for product in latest_products %}
+          <div class="mb-5 lg:mb-0">
+            <div>
+              <img
+                class="w-full w-8- h-80 object-cover"
+                src="{{ product.featured_image | img_url: 'large' }}"
+                alt="{{ product.title }}"
+                loading="lazy"
+                height="auto"
+                width="auto" />
+            </div>
+            <h2>{{ product.title }}</h2>
+            <div>
+              <span>{{ product.compare_at_price_max | money }}</span>
+              <span>{{ product.compare_at_price_min | money }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% comment %} End Mobile slider  {% endcomment %}
+    {% comment %} Desktop  {% endcomment %}
+    <div class="hidden md:block">
+      <div class="lg:flex lg:justify-center lg:items-center lg:gap-4 mb-20">
+        {% for product in latest_products %}
+          <div class="mb-5 lg:mb-0">
+            <div>
+              <img
+                class="w-full w-8- h-80 object-cover"
+                src="{{ product.featured_image | img_url: 'large' }}"
+                alt="{{ product.title }}"
+                loading="lazy"
+                height="auto"
+                width="auto" />
+            </div>
+            <h2>{{ product.title }}</h2>
+            <div>
+              <span>{{ product.compare_at_price_max | money }}</span>
+              <span>{{ product.compare_at_price_min | money }}</span>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% comment %} Desktop  {% endcomment %}
+    <div class="text-center block mt-20">
+      <a href="{{ routes.all_products_collection_url }}" class="px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
         {{ content.button_text }}
       </a>
-    </div>
-    <div class="flex gap-4 mb-20">
-      {% for product in latest_products %}
-        <div>
-          <div>
-            <img
-              src="{{ product.featured_image | img_url: 'large' }}"
-              alt="{{ product.title }}"
-              loading="lazy" />
-          </div>
-          <h2>{{ product.title }}</h2>
-          <div>
-            <span>{{ product.compare_at_price_max | money }}</span>
-            <span>{{ product.compare_at_price_min | money }}</span>
-          </div>
-        </div>
-      {% endfor %}
     </div>
   </div>
 </div>

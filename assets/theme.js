@@ -1,6 +1,6 @@
 // Product Categories
 jQuery(document).ready(function ($) {
-  $(".category-slider").slick({
+  $(".global-slider").slick({
     dots: false,
     arrows: true,
     infinite: true,

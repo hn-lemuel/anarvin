@@ -16,7 +16,8 @@
             <img
               class="rounded-full w-36 h-36 mx-auto"
               src="{{ collection.image.src | img_url: 'large' }}"
-              alt="{{ collection.image.alt }}">
+              alt="{{ collection.image.alt }}"
+              loading="lazy">
           </div>
           <div>
             <a href="{{ collection.url }}" class="text-lg">{{ collection.title }}</a>

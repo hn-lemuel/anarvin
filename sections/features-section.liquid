@@ -1,0 +1,89 @@
+{% assign content = section.settings %}
+<div class="bg-teal-900">
+  <div class="container mx-auto py-12">
+    <div class="flex justify-center items-center gap-40">
+      <div class="w-2/5">
+        <h3 class="text-4xl font-medium mb-0 text-white mb-10">{{ content.section_title }}</h3>
+        <div class="flex mb-10">
+          <div class="mr-5">
+            <span class="text-white">{% render 'icon-check-badge' %}</span>
+          </div>
+          <div>
+            <h3 class="text-white text-sm uppercase tracking-[3px] mb-5">{{ content.feature_title1 }}</h3>
+            <div class="text-white text-sm">
+              {{ content.feature_desc1 }}
+            </div>
+          </div>
+        </div>
+        <div class="flex mb-10">
+          <div class="mr-5">
+            <span class="text-white">{% render 'icon-truck' %}</span>
+          </div>
+          <div>
+            <h3 class="text-white text-sm uppercase tracking-[3px] mb-5">{{ content.feature_title2 }}</h3>
+            <div class="text-white text-sm">
+              {{ content.feature_desc2 }}
+            </div>
+          </div>
+        </div>
+        <div class="mt-20">
+          <a href="{{ collection.url }}" class="px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Shop now</a>
+        </div>
+      </div>
+      <div class="w-3/5">
+        <img
+          class="mx-auto"
+          src="https://cdn.shopify.com/s/files/1/0739/2578/7938/files/feat-chair-img.png?v=1680144877"
+          alt="chair"
+          loading="lazy" />
+      </div>
+    </div>
+
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Features Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title",
+        "default": "Anarvin furniture"
+      },
+      {
+        "type": "text",
+        "id": "feature_title1",
+        "label": "Feature Title 1",
+        "default": "Best services"
+      },
+      {
+        "type": "text",
+        "id": "feature_title2",
+        "label": "Feature Title 2",
+        "default": "Free Shipping Worldwide"
+      },
+      {
+        "type": "text",
+        "id": "feature_desc1",
+        "label": "Feature description 1",
+        "default": "Nullam quis ante. Pellentesque libero tortor, tincidunt et, tinciduntamet est platea dictumst. Praesent nec nisl a purus blandit viverra"
+      }, {
+        "type": "text",
+        "id": "feature_desc2",
+        "label": "Feature description 2",
+        "default": "In consectetuer turpis ut velit. Phasellus accumsan cursus velit. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis."
+      }, {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "View All"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Features Section"
+      }
+    ]
+  }
+{% endschema %}

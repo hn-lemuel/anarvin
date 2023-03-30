@@ -11,7 +11,10 @@
         },
         "featured-products": {
             "type": "featured-products"
+        },
+        "features-section" : {
+            "type": "features-section"
         }
     },
-    "order": ["hero-banner", "featured-collections", "product-categories", "featured-products"]
+    "order": ["hero-banner", "featured-collections", "product-categories", "featured-products", "features-section"]
 }

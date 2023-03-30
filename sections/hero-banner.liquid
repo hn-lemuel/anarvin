@@ -1,6 +1,6 @@
 {% assign content = section.settings %}
 <section>
-  <div class="relative overflow-hidden bg-no-repeat bg-cover bg-center h-[500px] md:h-[800px]" style="background-image: url({{ content.image | img_url }});">
+  <div class="relative overflow-hidden bg-no-repeat bg-cover bg-center h-[500px] md:h-[800px]" style="background-image: url({{ content.image | img_url : '1000x1000' }});">
     {% if section.settings.image == blank %}
       {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
     {% endif %}

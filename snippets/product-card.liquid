@@ -1,0 +1,32 @@
+<div class="mb-5 lg:mb-0">
+  <div class="mb-5 relative">
+    <span class="absolute top-2 left-2 bg-orange-600 text-white text-md font-medium mr-2 px-2.5 py-0.5">Sale</span>
+    <img
+      class="w-full w-8- h-80 object-cover"
+      src="{{ product.featured_image | img_url: 'large' }}"
+      alt="{{ product.title }}"
+      loading="lazy"
+      height="auto"
+      width="auto" />
+  </div>
+  <div class="flex">
+    {% for i in (1..5) %}
+      {% if i <= product.average_rating %}
+        <span class="text-yellow-400 scale-90">{% render 'icon-star' %}</span>
+      {% else %}
+        <span class="text-yellow-400 scale-90">{% render 'icon-star-solid' %}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <a href="{{ product.url }}" class="text-base hover:text-anarvin">{{ product.title }}</a>
+  <div class="text-base font-bold text-anarvin">
+    {% if product.compare_at_price > product.price %}
+      <p class="sale-price">
+        <span>{{ product.compare_at_price | money }}</span>
+        <span class="font-normal line-through text-gray-500">{{ product.price | times: 0.8 | money }}</span>
+      </p>
+    {% else %}
+      <p>{{ product.price | money }}</p>
+    {% endif %}
+  </div>
+</div>

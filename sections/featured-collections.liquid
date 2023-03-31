@@ -11,7 +11,7 @@
         <h3 class="text-{{ color }} text-3xl font-medium mb-3">
           {{ product.title | escape }}
         </h3>
-        <a class="text-{{ color }}" href="{{ product.url }}">Shop Collection</a>
+        <a class="text-{{ color }} hover:underline hover:underline-offset-8" href="{{ product.url }}">Shop Collection</a>
       </div>
     {% endfor %}
   </div>

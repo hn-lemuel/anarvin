@@ -8,22 +8,7 @@
     <div class="block md:hidden">
       <div class="global-slider">
         {% for product in latest_products %}
-          <div class="mb-5 lg:mb-0">
-            <div>
-              <img
-                class="w-full w-8- h-80 object-cover"
-                src="{{ product.featured_image | img_url: 'large' }}"
-                alt="{{ product.title }}"
-                loading="lazy"
-                height="auto"
-                width="auto" />
-            </div>
-            <h2>{{ product.title }}</h2>
-            <div>
-              <span>{{ product.compare_at_price_max | money }}</span>
-              <span>{{ product.compare_at_price_min | money }}</span>
-            </div>
-          </div>
+          {% render 'product-card', product: product %}
         {% endfor %}
       </div>
     </div>
@@ -32,22 +17,7 @@
     <div class="hidden md:block">
       <div class="lg:flex lg:justify-center lg:items-center lg:gap-4 mb-20">
         {% for product in latest_products %}
-          <div class="mb-5 lg:mb-0">
-            <div>
-              <img
-                class="w-full w-8- h-80 object-cover"
-                src="{{ product.featured_image | img_url: 'large' }}"
-                alt="{{ product.title }}"
-                loading="lazy"
-                height="auto"
-                width="auto" />
-            </div>
-            <h2>{{ product.title }}</h2>
-            <div>
-              <span>{{ product.compare_at_price_max | money }}</span>
-              <span>{{ product.compare_at_price_min | money }}</span>
-            </div>
-          </div>
+          {% render 'product-card', product: product %}
         {% endfor %}
       </div>
     </div>

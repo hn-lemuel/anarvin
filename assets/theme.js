@@ -34,4 +34,10 @@ jQuery(document).ready(function ($) {
     ],
   });
 });
+
 // End Product Categories
+
+// Update cart count
+jQuery(document).on("ajaxCart.afterCartLoad", function (event, cart) {
+  $(".cart-count").text(cart.item_count);
+});

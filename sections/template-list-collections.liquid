@@ -1,0 +1,57 @@
+<div class="container mx-auto p-10 lg:p-20">
+  <div class="flex flex-col items-center">
+    <h1 class="w-full text-4xl font-medium mb-0 pb-10 md:pb-20">{{ section.settings.title }}</h1>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+      {% for collection in collections %}
+        {% if collection.all_products_count > 0 %}
+          <div class="w-full">
+            <div class="bg-white overflow-hidden">
+              <a href="{{ collection.url }}">
+                <div class="h-80 overflow-hidden">
+                  {% if collection.featured_image != blank %}
+                    {% assign collection_image = collection.featured_image %}
+                  {% else %}
+                    {% assign collection_image = collection.products.first.image %}
+                  {% endif %}
+
+                  <img
+                    class="w-full h-full object-cover transition duration-1000 ease-in-out transform hover:scale-105"
+                    src="{{ collection_image | img_url: 'large' }}"
+                    alt="{{ collection.title | escape }}"
+                    height="auto"
+                    width="auto"
+                    loading="lazy">
+                </div>
+              </a>
+              <div class="pt-5 text-center">
+                <h1 class="text-xl text-anarvin mb-1">{{ collection.title }}</h1>
+                {% if collection.products_count > 0 %}
+                  <p class="text-sm text-gray-500">{{ collection.products_count }} products</p>
+                {% else %}
+                  <p>0 products</p>
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Template List Collections",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "Collections",
+        "label": "Title"
+      }
+    ]
+  }
+{% endschema %}

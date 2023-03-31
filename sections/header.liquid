@@ -166,29 +166,39 @@
     </div>
   </div>
 
-  <div x-show="searchBarOpen" class="w-full absolute top-0 bg-white border">
-    <button
-      type="button"
-      x-on:click="searchBarOpen = false"
-      class="absolute top-0 right-0 mr-5 mt-5 text-gray-500">
-      {% render 'icon-close' %}
-    </button>
-    <div class="h-40 flex justify-center items-center">
-      <form
-        action="{{ routes.search_url }}"
-        method="get"
-        class="flex-auto">
-        <div class="relative text-gray-500 px-10 border">
-          <input
-            type="search"
-            name="q"
-            placeholder="Search"
-            class="w-full bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
-          <button type="submit" class="absolute right-0 top-0 mt-2 mr-2 md:mr-20">
-            {% render 'icon-search' %}
-          </button>
+  <div x-show="searchBarOpen" class="w-full absolute top-0 bg-white border z-40">
+    <div class="container mx-auto px-4 sm:px-6">
+      <button
+        type="button"
+        x-on:click="searchBarOpen = false"
+        class="absolute top-0 right-0 mr-5 mt-5 text-gray-500">
+        {% render 'icon-close' %}
+      </button>
+      <div class="h-40 lg:h-28 flex justify-center items-center">
+        <form
+          action="{{ routes.search_url }}"
+          method="get"
+          class="flex-auto">
+          <div class="relative text-gray-500 border">
+            <input
+              type="search"
+              name="q"
+              placeholder="Search"
+              class="w-full bg-white h-10 px-5 rounded-full text-sm focus:outline-none">
+            <button type="submit" class="absolute right-0 top-0 mr-5 mt-2">
+              {% render 'icon-search' %}
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="pb-5">
+        <div class="pb-3 text-black text-sm">Top collection:</div>
+        <div class="flex flex-wrap">
+          {% for collection in collections limit: 6 %}
+            <a class="mb-2 border border-anarvin text-anarvin hover:bg-anarvin hover:text-white hover:border-anarvin mr-2 px-2.5 py-0.5" href="{{ collection.url }}">{{ collection.title }}</a>
+          {% endfor %}
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

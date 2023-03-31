@@ -1,0 +1,38 @@
+{% assign footer_menu_handle = 'footer' %}
+<footer class="bg-white">
+  <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <a href="{{ shop.url }}" class="flex items-center mb-4 sm:mb-0 font-bold">
+        {{ shop.name }}
+      </a>
+      {% if linklists[footer_menu_handle] != blank %}
+        <ul class="flex items-center mb-6 text-sm font-medium text-black hover:text-anarvin">
+          {% for link in linklists[footer_menu_handle].links %}
+            <li>
+              <a class="mr-4 hover:underline hover:underline-offset-8 md:mr-6" href="{{ link.url }}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <hr class="my-6 border-gray-100 sm:mx-auto lg:my-8" />
+    {% assign current_year = 'now' | date: '%Y' %}
+    <span class="block text-sm text-gray-500 text-center">&copy; {{ current_year }}
+      <a href="{{ shop.url }}" class="hover:text-anarvin hover:underline hover:underline-offset-8">{{ shop.name }}</a>. {{ section.settings.copyright }}.</span>
+  </div>
+</footer>
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "text",
+        "id": "copyright",
+        "default": "All Rights Reserved",
+        "label": "Copyright Tex"
+      }
+    ]
+  }
+{% endschema %}

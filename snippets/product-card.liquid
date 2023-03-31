@@ -1,3 +1,11 @@
+<style>
+  .inset-center-bottom {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
 <div class="mb-5 lg:mb-0">
   <div class="mb-5 relative">
     <span class="absolute top-2 left-2 bg-orange-600 text-white text-md font-medium mr-2 px-2.5 py-0.5">Sale</span>
@@ -28,5 +36,17 @@
     {% else %}
       <p>{{ product.price | money }}</p>
     {% endif %}
+  </div>
+  <div class="mt-5">
+    <form action="/cart/add" method="post">
+      <input
+        type="hidden"
+        name="id"
+        value="{{ product.variants.first.id }}">
+      <button
+        class="text-center px-7 py-3 border border-anarvin uppercase text-anarvin font-medium text-sm leading-snug hover:bg-anarvin hover:text-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+        type="submit"
+        class="btn">Add to Cart</button>
+    </form>
   </div>
 </div>

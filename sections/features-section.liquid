@@ -31,9 +31,14 @@
         </div>
       </div>
       <div class="lg:w-3/5 mb-10 lg:mb-0">
+        {% if content.feature_img == blank %}
+          {% assign feat_image = "https://cdn.shopify.com/s/files/1/0739/2578/7938/files/feat-chair-img.png?v=1680144877" %}
+        {% else %}
+          {% assign feat_image = content.feature_img | img_url: 'large' %}
+        {% endif %}
         <img
           class="mx-auto delay-150 transition duration-1000 ease-in-out transform hover:scale-105"
-          src="https://cdn.shopify.com/s/files/1/0739/2578/7938/files/feat-chair-img.png?v=1680144877"
+          src="{{ feat_image }}"
           alt="chair"
           loading="lazy"
           height="auto"
@@ -80,6 +85,10 @@
         "id": "button_text",
         "label": "Button Text",
         "default": "View All"
+      }, {
+        "type": "image_picker",
+        "id": "feature_img",
+        "label": "Choose Image"
       }
     ],
     "presets": [

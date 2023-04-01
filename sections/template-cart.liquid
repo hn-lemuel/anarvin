@@ -1,0 +1,144 @@
+{% if cart.item_count > 0 %}
+  <div class="container mx-auto p-10 lg:p-20">
+    <div class="max-w-6xl flex flex-col my-10 mx-auto">
+      <div class="lg:flex lg:justify-between lg:items-center mb-0 pb-10 md:pb-20 text-center lg:text-left">
+        <h1 class="text-4xl font-medium mb-5">
+          Shopping Cart
+        </h1>
+        <a href="{{ routes.all_products_collection_url }}" class="text-base text-anarvin hover:text-black underline underline-offset-8">
+          Continue shopping
+        </a>
+      </div>
+    </div>
+    <div class="max-w-6xl flex flex-col my-10 mx-auto">
+      <form
+        action="{{ routes.cart_url }}"
+        method="POST"
+        novalidate>
+        <div class="hidden lg:flex">
+          <div class="w-1/2">
+            <p class="text-left text-base  text-gray-500">Product</p>
+          </div>
+          <div class="w-1/4">
+            <p class="text-right text-base  text-gray-500">Quantity</p>
+          </div>
+          <div class="w-1/4">
+            <p class="text-right text-base  text-gray-500">Total Price</p>
+          </div>
+        </div>
+        <hr class="my-5 border-gray-100 sm:mx-auto" />
+        {% for item in cart.items %}
+          <div class="lg:flex justify-center items-center">
+            <div class="lg:w-1/2 mb-10">
+              <div class="flex gap-4 items-center">
+                <div>
+                  <a href="{{ item.url }}">
+                    {% if item.image %}
+                      <img
+                        src="{{ item.image | img_url: 'large' }}"
+                        alt="{{ item.title | escape }}"
+                        class="w-24 h-24 object-cover border"
+                        width="auto"
+                        height="auto"
+                        loading="lazy">
+                    {% else %}
+                      {{ 'product-1' | placeholder_svg_tag: 'w-20 h-20 object-cover border' }}
+                    {% endif %}
+                  </a>
+                </div>
+                <div>
+                  <a href="{{ item.url }}" class="my-1">{{ item.product.title | truncatewords: 5 }}</a>
+                  <p class="text-sm text-gray-500 my-1">{{ item.variant.title }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-1/4 mb-10">
+              <div class="flex flex-col lg:items-end">
+                <input
+                  type="number"
+                  name="updates[]"
+                  value="{{ item.quantity }}"
+                  min="1"
+                  id="updates_{{ forloop.index }}"
+                  class="w-20 border p-2">
+                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="pt-5 text-sm text-gray-500 underline underline-offset-8">remove</a>
+              </div>
+            </div>
+            <div class="lg:w-1/4 mb-10">
+              <div class="text-base font-medium lg:text-right">
+                <p class="lg:text-right text-base text-gray-500">Total Price</p>
+                {{ item.line_price | money }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <hr class="border-gray-100 sm:mx-auto" />
+        <div class="lg:flex">
+          <div class="w-full lg:w-3/4 my-4">
+            <div class="flex flex-col items-start">
+              <label for="cart_notes" class="mb-3 text-sm">Special instructions for seller</label>
+              <textarea
+                name="note"
+                id="cart_notes"
+                placeholder="How can we help you?"
+                class="w-full text-sm md:max-w-lg resize-none border h-24 py-3 px-5"></textarea>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/4 my-4">
+            <h3 class="text-base lg:text-right">Subtotal:
+              <span class="font-medium">{{ cart.total_price | money }}</span>
+            </h3>
+            <p class="lg:text-right text-sm text-gray-500 italic">Taxes and shipping calculated at checkout</p>
+            <div class="mt-5">
+              <div class="my-2">
+                <button
+                  type="submit"
+                  name="update"
+                  class="w-full text-center px-7 py-3 border border-anarvin uppercase text-anarvin font-medium text-sm leading-snug hover:bg-anarvin hover:text-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Update</button>
+              </div>
+              <div class="my-2">
+                <button
+                  type="submit"
+                  name="checkout"
+                  class="w-full text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% else %}
+  <div class="max-w-6xl my-4 mx-auto flex items-center justify-center h-screen">
+    <div class="text-center">
+      <h1 class="text-4xl font-medium mb-5">Your cart is currently empty.</h1>
+      <p class="text-base  text-gray-500">
+        Before proceed to checkout you must add some products to your shopping cart.
+      </p>
+      <div class="my-4 py-4">
+        <a href="{{ routes.all_products_collection_url }}" class="w-full text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Continue shopping</a>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Template Cart",
+    "blocks": [
+      {
+        "type": "subtotal",
+        "name": "Subtotal",
+        "limit": 1
+      }, {
+        "type": "update_button",
+        "name": "Update Button",
+        "limit": 1
+      }, {
+        "type": "checkout_button",
+        "name": "Checkout Button",
+        "limit": 1
+      }
+    ]
+  }
+{% endschema %}

@@ -17,15 +17,6 @@
       height="auto"
       width="auto" />
   </div>
-  <div class="flex">
-    {% for i in (1..5) %}
-      {% if i <= product.average_rating %}
-        <span class="text-yellow-400 scale-90">{% render 'icon-star' %}</span>
-      {% else %}
-        <span class="text-yellow-400 scale-90">{% render 'icon-star-solid' %}</span>
-      {% endif %}
-    {% endfor %}
-  </div>
   <a href="{{ product.url }}" class="text-base hover:text-anarvin">{{ product.title }}</a>
   <div class="text-base font-bold text-anarvin">
     {% if product.compare_at_price > product.price %}

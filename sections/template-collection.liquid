@@ -1,7 +1,7 @@
 <div class="container mx-auto p-10 lg:p-20">
   {% paginate collection.products by section.settings.number_of_products_per_page %}
-    <div class="flex justify-between items-center mb-0 pb-10 md:pb-20">
-      <h1 class="text-4xl font-medium">{{ collection.title }}</h1>
+    <div class="lg:flex lg:justify-between lg:items-center mb-0 pb-10 md:pb-20 text-center lg:text-left">
+      <h1 class="text-4xl font-medium mb-5">{{ collection.title }}</h1>
       <a href="{{ routes.collections_url }}" class="text-base text-anarvin hover:text-black underline underline-offset-8">Go back to collections</a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">

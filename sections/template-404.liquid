@@ -1,0 +1,61 @@
+{% assign content = section.settings %}
+<div class="container mx-auto p-10 lg:p-20">
+  <div class="h-screen">
+    <div class="text-center">
+      <h1 class="font-medium text-9xl lg:text-[300px]">{{ content.title }}</h1>
+      <h3 class="text-xl lg:text-5xl">
+        {{ content.subtitle }}
+      </h3>
+      <div class="pt-10 text-sm">
+        {{ content.messge }}
+      </div>
+      <div class="pt-10">
+        {% if content.button_url == blank %}
+          {% assign shop_url = shop.secure_url %}
+        {% else %}
+          {% assign shop_url = section.settings.button_url %}
+        {% endif %}
+        <a href="{{ shop_url }}" class="overflow-hidden w-full text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+          {{ content.button_text }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Template 404",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "default": "404",
+        "label": "404 Heading Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "default": "Oops! That page can't be found.",
+        "label": "404 Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "message",
+        "default": "We're really sorry but we can't seem to find the page you were looking for.",
+        "label": "404 Message"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "default": "Back to Homepage",
+        "label": "Button Text"
+      }, {
+        "type": "text",
+        "id": "button_url",
+        "label": "Button URL"
+      }
+    ]
+  }
+{% endschema %}

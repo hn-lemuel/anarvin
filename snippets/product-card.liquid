@@ -6,9 +6,12 @@
     transform: translate(-50%, -50%);
   }
 </style>
+
 <div class="mb-5 lg:mb-0">
   <div class="mb-5 relative">
-    <span class="absolute top-2 left-2 bg-orange-600 text-white text-md font-medium mr-2 px-2.5 py-0.5">Sale</span>
+    {% if product.compare_at_price > product.price %}
+      <span class="absolute top-2 left-2 bg-orange-600 text-white text-md font-medium mr-2 px-2.5 py-0.5 z-10">Sale</span>
+    {% endif %}
     <img
       class="w-full w-8- h-80 object-cover transition duration-1000 ease-in-out transform hover:scale-105"
       src="{{ product.featured_image | img_url: 'large' }}"

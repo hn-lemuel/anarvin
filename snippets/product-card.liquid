@@ -41,10 +41,10 @@
       </form>
     </div>
   </div>
-  <p class="text-base">{{ product.title }}</p>
-  <div class="text-base font-bold text-anarvin">
+  <a href="{{ product.url }}" class="text-xl hover:text-anarvin">{{ product.title }}</a>
+  <div class="text-lg font-bold text-anarvin">
     {% if product.compare_at_price > product.price %}
-      <p class="sale-price">
+      <p>
         <span>{{ product.compare_at_price | money }}</span>
         <span class="font-normal line-through text-gray-500">{{ product.price | times: 0.8 | money }}</span>
       </p>

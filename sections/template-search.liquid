@@ -36,8 +36,9 @@
         </div>
 
       {% else %}
-        <div class="text-center my-4">
-          <p>No results found for the search term: {{ search.terms | escape }}. Try to use a different keyword</p>
+        <div class="text-center my-10 h-80">
+          <p>No results found for the search term:
+            <span class="font-bold text-anarvin">{{ search.terms | escape }}</span>. Try to use a different keyword</p>
         </div>
       {% endif %}
     {% endif %}

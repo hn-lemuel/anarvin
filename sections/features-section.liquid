@@ -31,7 +31,9 @@
           </div>
         </div>
         <div class="mt-20">
-          <a href="{{ collections.all.url }}" class="text-center px-7 py-3 bg-anarvin uppercase text-white font-bold text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Shop now</a>
+          <a href="{{ collections.all.url }}" class="text-center px-7 py-3 bg-white uppercase text-black font-bold text-sm leading-snug hover:bg-anarvin hover:text-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+            {{ content.button_text }}
+          </a>
         </div>
       </div>
       <div class="lg:w-3/5 mb-10 lg:mb-0">
@@ -88,7 +90,7 @@
         "type": "text",
         "id": "button_text",
         "label": "Button Text",
-        "default": "View All"
+        "default": "Shop now"
       }, {
         "type": "image_picker",
         "id": "feature_img",

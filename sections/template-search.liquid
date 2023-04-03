@@ -14,14 +14,14 @@
           value="{{ search.terms | escape }}"
           class="px-4 py-2 w-80 border-none">
 
-        <button type="submit" class="text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Search</button>
+        <button type="submit" class="text-center px-7 py-3 bg-anarvin uppercase text-white font-bold text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Search</button>
       </form>
     </div>
     {% if search.performed %}
       {% if search.results.size > 0 %}
         <div class="max-w-6xl mx-auto">
           <p class="text-gray-500 text-center my-10">{{ search.results.size }} results for
-            <span class="font-medium text-anarvin">"{{ search.terms | escape }}"</span>
+            <span class="font-bold text-anarvin">"{{ search.terms | escape }}"</span>
           </p>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {% for item in search.results %}

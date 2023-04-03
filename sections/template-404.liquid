@@ -2,7 +2,7 @@
 <div class="container mx-auto p-10 lg:p-20">
   <div class="h-screen">
     <div class="text-center">
-      <h1 class="font-medium text-9xl lg:text-[300px]">{{ content.title }}</h1>
+      <h1 class="font-bold text-9xl lg:text-[300px]">{{ content.title }}</h1>
       <h3 class="text-xl lg:text-5xl">
         {{ content.subtitle }}
       </h3>
@@ -15,7 +15,7 @@
         {% else %}
           {% assign shop_url = section.settings.button_url %}
         {% endif %}
-        <a href="{{ shop_url }}" class="overflow-hidden w-full text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+        <a href="{{ shop_url }}" class="overflow-hidden w-full text-center px-7 py-3 bg-anarvin uppercase text-white font-bold text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
           {{ content.button_text }}
         </a>
       </div>

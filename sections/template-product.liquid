@@ -52,7 +52,7 @@
                 <span class="text-xl text-gray-900">{{ selected_variant.price | money }}</span>
 
                 {% if selected_variant.price < selected_variant.compare_at_price %}
-                  <span class="bg-orange-600 text-white text-md font-medium mr-2 px-2.5 py-0.5">Sale</span>
+                  <span class="bg-orange-600 text-white text-md font-bold mr-2 px-2.5 py-0.5">Sale</span>
                 {% endif %}
               </div>
               {% when 'variant_selector' %}
@@ -109,7 +109,7 @@
                 <button
                   type="submit"
                   name="add"
-                  class="text-center px-7 py-3 bg-anarvin uppercase text-white font-medium text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                  class="text-center px-7 py-3 bg-anarvin uppercase text-white font-bold text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                   {% if selected_variant.available == false %}disabled{% endif %}>
                   {% if selected_variant.available == false %}
                     Sold out

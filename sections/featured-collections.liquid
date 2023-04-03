@@ -8,7 +8,7 @@
         {% assign color = 'white' %}
       {% endif %}
       <div class="mb-5 lg:mb-0 justify-start md:flex md:justify-end md:flex-col bg-no-repeat bg-cover bg-center w-full lg:h-[600px] p-10 {{ border }} transition duration-1000 ease-in-out transform hover:scale-105" style="background-image: url({{ product.image.src | collection_img_url: '1920x2280' }})">
-        <h3 class="text-{{ color }} text-3xl font-medium mb-3">
+        <h3 class="text-{{ color }} text-3xl font-bold mb-3">
           {{ product.title | escape }}
         </h3>
         <a class="text-{{ color }} hover:underline hover:underline-offset-8" href="{{ product.url }}">Shop Collection</a>

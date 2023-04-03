@@ -8,7 +8,7 @@
 
 <div class="bg-orange-50">
   <div class="container mx-auto p-10 lg:p-20">
-    <h3 class="text-3xl font-medium mb-20 text-center">{{ section.settings.section_title | escape }}</h3>
+    <h3 class="text-3xl font-bold mb-20 text-center">{{ section.settings.section_title | escape }}</h3>
     <div class="global-slider">
       {% for collection in collections %}
         <div class="flex justify-center items-center">
@@ -22,7 +22,7 @@
               width="auto" />
           </div>
           <div class="text-center">
-            <a href="{{ collection.url }}" class="text-black hover:text-anarvin text-lg font-medium">{{ collection.title }}</a>
+            <a href="{{ collection.url }}" class="text-black hover:text-anarvin text-lg font-bold">{{ collection.title }}</a>
           </div>
         </div>
       {% endfor %}

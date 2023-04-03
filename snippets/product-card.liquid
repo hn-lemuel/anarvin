@@ -10,7 +10,7 @@
 <div class="mb-5 lg:mb-0">
   <div class="mb-5 relative overflow-hidden">
     {% if product.compare_at_price > product.price %}
-      <span class="absolute top-2 left-2 bg-orange-600 text-white text-md font-medium mr-2 px-2.5 py-0.5 z-10">Sale</span>
+      <span class="absolute top-2 left-2 bg-orange-600 text-white text-md font-bold mr-2 px-2.5 py-0.5 z-10">Sale</span>
     {% endif %}
     <img
       class="w-full w-8- h-80 object-cover transition duration-1000 ease-in-out transform hover:scale-105"
@@ -26,13 +26,13 @@
           name="id"
           value="{{ product.variants.first.id }}">
         <div>
-          <button class="text-anarvin bg-white hover:bg-black hover:text-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2" type="submit">
+          <button class="text-anarvin bg-white hover:bg-black hover:text-white focus:ring-4 focus:outline-none font-bold rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2" type="submit">
             {% render 'icon-shopping-bag' %}
             <span class="sr-only">Add to cart</span>
           </button>
           <a
             href="{{ product.url }}"
-            class="text-anarvin bg-white hover:bg-black hover:text-white focus:ring-4 focus:outline-none font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2"
+            class="text-anarvin bg-white hover:bg-black hover:text-white focus:ring-4 focus:outline-none font-bold rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2"
             type="submit">
             {% render 'icon-arrow-right' %}
             <span class="sr-only">View product</span>

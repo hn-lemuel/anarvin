@@ -1,6 +1,6 @@
 {
     "sections": {
-        "template": {
+        "template-product": {
             "type": "template-product",
             "blocks": {
                 "vendor": {
@@ -34,9 +34,13 @@
                 "description",
                 "checkout_buttons"
             ]
+        },
+        "featured-products": {
+            "type": "featured-products"
         }
     },
     "order": [
-        "template"
+        "template-product",
+        "featured-products"
     ]
 }

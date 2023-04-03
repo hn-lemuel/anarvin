@@ -5,7 +5,7 @@
       {% assign products_of_type = collections.all.products | where: 'type', type %}
       {% assign product_image = products_of_type.first.featured_image %}
       <div class="mb-10 lg:mb-0">
-        <div class="mb-8">
+        <div class="mb-8 overflow-hidden">
           <a href="/collections/{{ type | handleize }}">
             <img
               src="{{ product_image.src | img_url: '1000x1000' }}"

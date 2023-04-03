@@ -1,10 +1,15 @@
 {% assign footer_menu_handle = 'footer' %}
+{% if section.settings.footer_logo %}
+  {% assign logo = section.settings.footer_logo | img_url: 'medium' %}
+{% else %}
+  {% assign logo = "logo.svg" | asset_url %}
+{% endif %}
 <footer class="bg-slate-100">
   <div class="container mx-auto p-10 lg:p-20">
     <div class="sm:flex sm:items-center sm:justify-between">
-      <a href="{{ shop.url }}" class="flex items-center mb-4 sm:mb-0 font-bold">
-        {{ shop.name }}
-      </a>
+      <div class="max-w-[110px] mb-5 lg:mb-0">
+        {% render 'logo', the_logo: logo %}
+      </div>
       {% if linklists[footer_menu_handle] != blank %}
         <ul class="flex items-center mb-6 text-smtext-black hover:text-anarvin">
           {% for link in linklists[footer_menu_handle].links %}
@@ -32,6 +37,10 @@
         "id": "copyright",
         "default": "All Rights Reserved",
         "label": "Copyright Tex"
+      }, {
+        "type": "image_picker",
+        "id": "footer_logo",
+        "label": "Upload Footer Logo"
       }
     ]
   }

@@ -19,12 +19,36 @@
             "type": "product-types"
         }
     },
-    "order": [
-        "hero-banner",
-        "featured-collections",
-        "product-categories",
-        "featured-products",
-        "features-section",
-        "product-types"
+    "blocks": [
+        {
+            "type": "hero-banner",
+            "name": "Hero Banner",
+            "limit": 1
+        },
+        {
+            "type": "featured-collections",
+            "name": "Featured Collections",
+            "limit": 1
+        },
+        {
+            "type": "product-categories",
+            "name": "Product Categories",
+            "limit": 1
+        },
+        {
+            "type": "featured-products",
+            "name": "Featured Products",
+            "limit": 1
+        },
+        {
+            "type": "features-section",
+            "name": "Features Section",
+            "limit": 1
+        },
+        {
+            "type": "product-types",
+            "name": "Product Types",
+            "limit": 1
+        }
     ]
 }

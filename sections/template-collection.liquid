@@ -4,6 +4,24 @@
       <h1 class="text-4xl font-bold mb-5">{{ collection.title }}</h1>
       <a href="{{ routes.collections_url }}" class="text-base text-anarvin hover:text-black underline underline-offset-8">Go back to collections</a>
     </div>
+    <div class="text-base text-gray-500 mb-5">
+      {% assign categories = collection.all_tags | sort %}
+      <label for="category">Filter by Category:</label>
+      <select
+        class="border"
+        id="category"
+        name="category"
+        onchange="location = this.value;">
+        <option value="{{ collection.url }}">All Categories</option>
+        {% for category in categories %}
+          {% if current_tags contains category %}
+            <option value="{{ collection.url }}/{{ category | handleize }}" selected>{{ category }}</option>
+          {% else %}
+            <option value="{{ collection.url }}/{{ category | handleize }}">{{ category }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {% for product in collection.products %}
         {% render 'product-card', product: product %}

@@ -24,23 +24,4 @@
       <p>{{ product.price | money }}</p>
     {% endif %}
   </div>
-  <div class="inset-center-bottom">
-    <form action="/cart/add" method="post">
-      <input
-        type="hidden"
-        name="id"
-        value="{{ product.variants.first.id }}">
-      <div class="mt-3 lg:flex gap-3">
-        <button class="text-center w-full lg:w-auto mb-3 lg:mb-0 px-7 py-3 border border-black bg-black uppercase text-white font-bold text-sm leading-snug hover:bg-anarvin hover:text-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out" type="submit">
-          Add to cart
-        </button>
-        <a
-          href="{{ product.url }}"
-          class="text-center w-full lg:w-auto px-7 py-3 border border-anarvin uppercase text-anarvin font-bold text-sm leading-snug hover:bg-anarvin hover:text-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-          type="submit">
-          View Product
-        </a>
-      </div>
-    </form>
-  </div>
 </div>

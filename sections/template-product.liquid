@@ -106,17 +106,7 @@
 
               {% when 'checkout_buttons' %}
               <div class="my-3">
-                <button
-                  type="submit"
-                  name="add"
-                  class="text-center px-7 py-3 bg-anarvin uppercase text-white font-bold text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                  {% if selected_variant.available == false %}disabled{% endif %}>
-                  {% if selected_variant.available == false %}
-                    Sold out
-                  {% else %}
-                    Add to cart
-                  {% endif %}
-                </button>
+                {% render 'add-to-cart-button' %}
               </div>
           {% else %}
 

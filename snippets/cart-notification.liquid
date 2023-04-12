@@ -1,0 +1,69 @@
+<div
+  id="cartNotif"
+  class="relative z-20 cart-notification-modal hidden transition ease-out duration-300"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="true">
+  <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+  <div class="fixed inset-0 z-10 overflow-y-auto w-80 mx-auto flex justify-center items-center">
+    <div class="bg-white p-5 relative">
+      <span class="close-cart-notification absolute top-2.5 right-2.5">{% render 'icon-close' %}</span>
+      <div>
+        <div class="flex items-center gap-1 p-5">
+          <span class="text-green-500">
+            {% render 'icon-check-circle' %}
+          </span>
+          <div class="text-sm text-gray-500">
+            Item added to your cart
+          </div>
+        </div>
+        <div>
+          <div>
+            <div class="flex gap-4 items-center">
+              <div>
+                <a href="{{ item.url }}">
+                  <img
+                    src="https://cdn.shopify.com/s/files/1/0739/2578/7938/files/feat-chair-img.png?v=1680144877"
+                    alt="Product Title"
+                    class="w-24 h-24 object-cover border product-image"
+                    width="auto"
+                    height="auto"
+                    loading="lazy">
+                </a>
+              </div>
+              <div class="text-sm text-gray-500">
+                <a
+                  class="text-anarvin text-lg product-title"
+                  href="{{ item.url }}"
+                  class="my-1"></a>
+                <p>
+                  Product Quantity
+                  <span class="product-quantity font-bold"></span>
+                </p>
+                <p>
+                  Total Price
+                  <span class="product-price font-bold"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5">
+          <div class="my-2">
+            <a href="{{ routes.cart_url }}" class="w-full block text-center px-7 py-3 border border-anarvin uppercase text-anarvin font-bold text-sm leading-snug hover:bg-anarvin hover:text-white focus:outline-none focus:ring-0 transition duration-150 ease-in-out">View Cart</a>
+          </div>
+          <div class="my-2">
+            <button
+              type="submit"
+              name="checkout"
+              class="w-full text-center px-7 py-3 bg-anarvin uppercase text-white font-bold text-sm leading-snug hover:bg-black focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Checkout</button>
+          </div>
+          <div class="my-2 text-center">
+            <a class="text-anarvin hover:text-black underline underline-offset-8" href="{{ routes.all_products_collection_url }}">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -47,6 +47,7 @@
     <body>
       {% section 'header' %}
       <main role="main">
+        {% render 'cart-notification' %}
         {{ content_for_layout }}
         {% section 'footer' %}
       </main>
